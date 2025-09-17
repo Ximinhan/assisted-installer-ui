@@ -13,7 +13,7 @@ RUN git config --global --add safe.directory /app
 
 COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
 
-ARG YARN_VERSION=3.4.1
+ARG YARN_VERSION=4.3.1
 
 # bootstrap yarn so we can install and run the other tools.
 RUN CACHED_YARN=./artifacts/${YARN_VERSION}.tar.gz; \
