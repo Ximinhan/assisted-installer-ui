@@ -1,7 +1,6 @@
 FROM registry.ci.openshift.org/ocp/builder:rhel-9-base-nodejs-openshift-4.20 AS ui-build
 USER 0
 
-WORKDIR /app
 COPY --chown=1001:0 . /app
 ENV NODE_OPTIONS='--max-old-space-size=8192'
 RUN git config --global --add safe.directory /app
@@ -12,6 +11,8 @@ RUN git config --global --add safe.directory /app
 # available.
 
 COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
+RUN touch $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/.npmrc $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/.yarnrc
+WORKDIR /app
 
 ARG YARN_VERSION=3.4.1
 
