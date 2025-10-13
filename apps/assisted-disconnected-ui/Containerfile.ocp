@@ -17,7 +17,7 @@ WORKDIR /app
 
 ARG YARN_VERSION=3.4.1
 
-RUN yarn install --immutable && yarn build:all
+RUN npm install yarn@3.4.1 && yarn install --immutable && yarn build:all
 
 FROM registry.access.redhat.com/ubi9/go-toolset:1.22 as proxy-build
 WORKDIR /app
