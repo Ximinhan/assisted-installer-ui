@@ -1,4 +1,4 @@
-FROM registry.ci.openshift.org/ocp/4.20:base-rhel9 AS ui-build
+FROM registry.ci.openshift.org/ocp/builder:rhel-9-base-nodejs-openshift-4.20 AS ui-build
 USER 0
 
 
